@@ -102,4 +102,4 @@ class PostEdit extends Component {
   }
 }
 
-export default postEdit
+export default PostEdit

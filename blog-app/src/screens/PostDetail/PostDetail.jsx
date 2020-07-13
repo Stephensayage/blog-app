@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './PostDetail.css'
 import Layout from '../../components/shared/Layout/Layout'
-import { getpost, deletepost } from '../../services/posts'
+import { getPost, deletePost } from '../../services/posts'
 import { Link } from 'react-router-dom'
 
 class PostDetail extends Component {
@@ -43,4 +43,4 @@ class PostDetail extends Component {
   }
 }
 
-export default postDetail
+export default PostDetail

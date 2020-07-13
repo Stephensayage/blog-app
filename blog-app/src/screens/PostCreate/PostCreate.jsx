@@ -84,4 +84,4 @@ class PostCreate extends Component {
   }
 }
 
-export default postCreate
+export default PostCreate
