@@ -1,4 +1,4 @@
-.product {
+.post {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,31 +9,31 @@
     margin-bottom: 60px;
 }
 
-.product:hover {
+.post:hover {
     transform: scale(1.02);
     opacity: .9;
 }
 
-.product-image {
+.post-image {
     width: 300px;
 }
 
-.product-name {
+.post-name {
     font-size: 24px;
     padding: 10px;
 }
 
-.price {
+.title {
     font-size: 18px;
     padding: 10px;
 }
 
 @media (max-width: 500px) {
-    .product {
+    .post {
         width: 100%;
         margin-bottom: 20px;
     }
-    .product-image {
+    .post-image {
         width: 180px;
         margin: 15px;
         padding: 10px;
