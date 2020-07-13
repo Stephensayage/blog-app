@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-import './ProductEdit.css'
+import './PostEdit.css'
 import { Redirect } from 'react-router-dom'
 import Layout from '../../components/shared/Layout/Layout'
-import { getProduct, updateProduct } from '../../services/products'
+import { getPost, updatePost } from '../../services/posts'
 
-class ProductEdit extends Component {
+class PostEdit extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      product: {
-        name: '',
+      post: {
+        title: '',
         description: '',
         imgURL: '',
-        price: ''
+        author: ''
       },
       updated: false
     }
@@ -20,16 +20,16 @@ class ProductEdit extends Component {
 
   async componentDidMount() {
     let { id } = this.props.match.params
-    const product = await getProduct(id)
-    this.setState({ product })
+    const post = await getPost(id)
+    this.setState({ post })
   }
 
 
   handleChange = (event) => {
     const { name, value } = event.target
     this.setState({
-      product: {
-        ...this.state.product,
+      post: {
+        ...this.state.post,
         [name]: value
       }
     })
@@ -38,28 +38,28 @@ class ProductEdit extends Component {
   handleSubmit = async (event) => {
     event.preventDefault()
     let { id } = this.props.match.params
-    const updated = await updateProduct(id, this.state.product)
+    const updated = await updatePost(id, this.state.post)
     this.setState({ updated })
   }
 
   render() {
 
-    const { product, updated } = this.state
+    const { post, updated } = this.state
 
     if (updated) {
-      return <Redirect to={`/products/${this.props.match.params.id}`} />
+      return <Redirect to={`/posts/${this.props.match.params.id}`} />
     }
 
     return (
       <Layout>
-        <div className="product-edit">
+        <div className="post-edit">
           <div className="image-container">
-            <img className="edit-product-image" src={product.imgURL} alt={product.name} />
+            <img className="edit-post-image" src={post.imgURL} alt={post.name} />
             <form onSubmit={this.handleSubmit}>
               <input
                 className="edit-input-image-link"
                 placeholder='Image Link'
-                value={product.imgURL}
+                value={post.imgURL}
                 name='imgURL'
                 required
                 onChange={this.handleChange}
@@ -70,7 +70,7 @@ class ProductEdit extends Component {
             <input
               className="input-name"
               placeholder='Name'
-              value={product.name}
+              value={post.name}
               name='name'
               required
               autoFocus
@@ -79,7 +79,7 @@ class ProductEdit extends Component {
             <input
               className="input-price"
               placeholder='Price'
-              value={product.price}
+              value={post.price}
               name='price'
               required
               onChange={this.handleChange}
@@ -89,7 +89,7 @@ class ProductEdit extends Component {
               rows={10}
               cols={78}
               placeholder='Description'
-              value={product.description}
+              value={post.description}
               name='description'
               required
               onChange={this.handleChange}
@@ -102,4 +102,4 @@ class ProductEdit extends Component {
   }
 }
 
-export default ProductEdit
+export default postEdit
