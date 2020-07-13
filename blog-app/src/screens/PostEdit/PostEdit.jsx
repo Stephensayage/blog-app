@@ -69,7 +69,7 @@ class PostEdit extends Component {
           <form className="edit-form" onSubmit={this.handleSubmit}>
             <input
               className="input-name"
-              placeholder='Name'
+              placeholder='Title'
               value={post.title}
               name='title'
               required
@@ -78,7 +78,7 @@ class PostEdit extends Component {
             />
             <input
               className="input-price"
-              placeholder='Price'
+              placeholder='Author'
               value={post.author}
               name='author'
               required

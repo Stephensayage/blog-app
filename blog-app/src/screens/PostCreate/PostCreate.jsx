@@ -45,7 +45,7 @@ class PostCreate extends Component {
         <form className="create-form" onSubmit={this.handleSubmit}>
           <input
             className="input-name"
-            placeholder='Name'
+            placeholder='Title'
             value={post.title}
             name='title'
             required
@@ -54,7 +54,7 @@ class PostCreate extends Component {
           />
           <input
             className="input-price"
-            placeholder='Price'
+            placeholder='Author'
             value={post.author}
             name='author'
             required
