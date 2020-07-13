@@ -27,10 +27,10 @@ class PostDetail extends Component {
     return (
       <Layout>
         <div className="post-detail">
-          <img className="post-detail-image" src={post.imgURL} alt={post.name} />
+          <img className="post-detail-image" src={post.imgURL} alt={post.title} />
           <div className="detail">
-            <div className="name">{post.name}</div>
-            <div className="price">{`$${post.price}`}</div>
+            <div className="name">{post.title}</div>
+            <div className="price">{`$${post.author}`}</div>
             <div className="description">{post.description}</div>
             <div className="button-container">
               <button className="edit-button"><Link className="edit-link" to={`/posts/${post._id}/edit`}>Edit</Link></button>

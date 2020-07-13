@@ -1,13 +1,13 @@
 import React from 'react'
 import './Home.css'
-import ProductCards from '../../components/PostCards/PostCards'
+import PostCards from '../../components/PostCards/PostCards'
 import Layout from '../../components/shared/Layout/Layout'
 
 const Home = () => {
   return (
     <Layout>
       <div className="home">
-        <ProductCards />
+        <PostCards />
       </div>
     </Layout>
   )

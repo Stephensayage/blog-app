@@ -54,7 +54,7 @@ class PostEdit extends Component {
       <Layout>
         <div className="post-edit">
           <div className="image-container">
-            <img className="edit-post-image" src={post.imgURL} alt={post.name} />
+            <img className="edit-post-image" src={post.imgURL} alt={post.title} />
             <form onSubmit={this.handleSubmit}>
               <input
                 className="edit-input-image-link"
@@ -70,8 +70,8 @@ class PostEdit extends Component {
             <input
               className="input-name"
               placeholder='Name'
-              value={post.name}
-              name='name'
+              value={post.title}
+              name='title'
               required
               autoFocus
               onChange={this.handleChange}
@@ -79,8 +79,8 @@ class PostEdit extends Component {
             <input
               className="input-price"
               placeholder='Price'
-              value={post.price}
-              name='price'
+              value={post.author}
+              name='author'
               required
               onChange={this.handleChange}
             />
