@@ -1,59 +1,59 @@
 import React, { Component } from 'react'
-import './Products.css'
+import './Posts.css'
 
-import Product from '../../components/Product/Product'
+import Post from '../../components/Post/Post'
 import Search from '../../components/Search/Search'
 import { AZ, ZA, lowestFirst, highestFirst } from "../../utils/sort"
 import Sort from '../../components/Sort/Sort'
 import Layout from '../../components/shared/Layout/Layout'
-import { getProducts } from '../../services/products'
+import { getPosts } from '../../services/posts'
 
-class Products extends Component {
+class Posts extends Component {
   constructor() {
     super()
     this.state = {
-      allProducts: [],
-      queriedProducts: [],
+      allPosts: [],
+      queriedPosts: [],
       sortType: ''
     }
   }
 
   async componentDidMount() {
-    const allProducts = await getProducts()
+    const allPosts = await getPosts()
     this.setState({
-      allProducts: allProducts,
-      queriedProducts: allProducts
+      allPosts: allPosts,
+      queriedPosts: allPosts
     })
   }
 
   handleSearch = event => {
     const sort = () => this.handleSort(this.state.sortType)
-    const queriedProducts = this.state.allProducts.filter(product => product.name.toLowerCase().includes(event.target.value.toLowerCase()))
-    this.setState({ queriedProducts }, sort)
+    const queriedPosts = this.state.allPosts.filter(post => post.name.toLowerCase().includes(event.target.value.toLowerCase()))
+    this.setState({ queriedPosts }, sort)
   }
 
   handleSort = type => {
     this.setState({ sortType: type })
-    const { queriedProducts } = this.state
+    const { queriedPosts } = this.state
     switch (type) {
       case "name-ascending":
         this.setState({
-          queriedProducts: AZ(queriedProducts)
+          queriedPosts: AZ(queriedPosts)
         });
         break
       case "name-descending":
         this.setState({
-          queriedProducts: ZA(queriedProducts)
+          queriedPosts: ZA(queriedPosts)
         });
         break
       case "price-ascending":
         this.setState({
-          queriedProducts: lowestFirst(queriedProducts)
+          queriedPosts: lowestFirst(queriedPosts)
         });
         break
       case "price-descending":
         this.setState({
-          queriedProducts: highestFirst(queriedProducts)
+          queriedPosts: highestFirst(queriedPosts)
         });
         break
       default:
@@ -64,20 +64,20 @@ class Products extends Component {
   handleSubmit = event => event.preventDefault()
 
   render() {
-    const productsJSX = this.state.queriedProducts.map((product, index) =>
-      <Product _id={product._id} name={product.name} imgURL={product.imgURL} price={product.price} key={index} />
+    const postsJSX = this.state.queriedPosts.map((post, index) =>
+      <Post _id={post._id} name={post.name} imgURL={post.imgURL} price={post.price} key={index} />
     )
 
     return (
       <Layout>
         <Search onSubmit={this.handleSubmit} onChange={this.handleSearch} />
         <Sort onSubmit={this.handleSubmit} onChange={this.handleSort} />
-        <div className="products">
-          {productsJSX}
+        <div className="posts">
+          {postsJSX}
         </div>
       </Layout>
     )
   }
 }
 
-export default Products
+export default Posts

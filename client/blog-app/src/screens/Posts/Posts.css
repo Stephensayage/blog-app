@@ -1,4 +1,4 @@
-.products {
+.posts {
     width: 90vw;
     display: flex;
     flex-wrap: wrap;
@@ -27,7 +27,7 @@ select {
 }
 
 @media (max-width: 500px) {
-    .products {
+    .posts {
         width: 100%;
         justify-content: space-around;
     }

@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-import './ProductCreate.css'
+import './PostCreate.css'
 import Layout from '../../components/shared/Layout/Layout'
 import { Redirect } from 'react-router-dom'
-import { createProduct } from '../../services/products'
+import { createPost } from '../../services/posts'
 
-class ProductCreate extends Component {
+class PostCreate extends Component {
   constructor() {
     super()
     this.state = {
-      product: {
-        name: '',
+      post: {
+        title: '',
         description: '',
         imgURL: '',
-        price: ''
+        author: ''
       },
       created: false
     }
@@ -21,8 +21,8 @@ class ProductCreate extends Component {
   handleChange = (event) => {
     const { name, value } = event.target
     this.setState({
-      product: {
-        ...this.state.product,
+      post: {
+        ...this.state.post,
         [name]: value
       }
     })
@@ -30,15 +30,15 @@ class ProductCreate extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-    const created = await createProduct(this.state.product)
+    const created = await createPost(this.state.post)
     this.setState({ created })
   }
 
   render() {
-    const { product, created } = this.state
+    const { post, created } = this.state
 
     if (created) {
-      return <Redirect to={`/products`} />
+      return <Redirect to={`/posts`} />
     }
     return (
       <Layout>
@@ -46,7 +46,7 @@ class ProductCreate extends Component {
           <input
             className="input-name"
             placeholder='Name'
-            value={product.name}
+            value={post.name}
             name='name'
             required
             autoFocus
@@ -55,7 +55,7 @@ class ProductCreate extends Component {
           <input
             className="input-price"
             placeholder='Price'
-            value={product.price}
+            value={post.price}
             name='price'
             required
             onChange={this.handleChange}
@@ -64,7 +64,7 @@ class ProductCreate extends Component {
             className="textarea-description"
             rows={10}
             placeholder='Description'
-            value={product.description}
+            value={post.description}
             name='description'
             required
             onChange={this.handleChange}
@@ -72,7 +72,7 @@ class ProductCreate extends Component {
           <input
             className="input-image-link"
             placeholder='Image Link'
-            value={product.imgURL}
+            value={post.imgURL}
             name='imgURL'
             required
             onChange={this.handleChange}
@@ -84,4 +84,4 @@ class ProductCreate extends Component {
   }
 }
 
-export default ProductCreate
+export default postCreate

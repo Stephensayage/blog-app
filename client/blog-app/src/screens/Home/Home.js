@@ -1,6 +1,6 @@
 import React from 'react'
 import './Home.css'
-import ProductCards from '../../components/ProductCards/ProductCards'
+import ProductCards from '../../components/PostCards/PostCards'
 import Layout from '../../components/shared/Layout/Layout'
 
 const Home = () => {

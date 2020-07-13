@@ -1,4 +1,4 @@
-.product-edit {
+.post-edit {
     display: flex;
     padding: 100px;
     padding-top: 80px;
@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.edit-product-image {
+.edit-post-image {
     width: 500px;
     padding: 0 40px;
     padding-bottom: 5px;
@@ -69,14 +69,14 @@
         width: 100%;
         padding: 0px;
     }
-    .product-edit {
+    .post-edit {
         width: 100%;
         flex-direction: column;
     }
     .image-container {
         width: 100%;
     }
-    .edit-product-image {
+    .edit-post-image {
         width: 300px;
     }
 }
