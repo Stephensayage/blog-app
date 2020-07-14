@@ -28,7 +28,7 @@ class Posts extends Component {
 
   handleSearch = event => {
     const sort = () => this.handleSort(this.state.sortType)
-    const queriedPosts = this.state.allPosts.filter(post => post.name.toLowerCase().includes(event.target.value.toLowerCase()))
+    const queriedPosts = this.state.allPosts.filter(post => post.title.toLowerCase().includes(event.target.value.toLowerCase()))
     this.setState({ queriedPosts }, sort)
   }
 
@@ -65,7 +65,7 @@ class Posts extends Component {
 
   render() {
     const postsJSX = this.state.queriedPosts.map((post, index) =>
-      <Post _id={post._id} name={post.name} imgURL={post.imgURL} price={post.price} key={index} />
+      <Post id={post._id} title={post.title} imgURL={post.imgURL} author={post.author} key={index} />
     )
 
     return (

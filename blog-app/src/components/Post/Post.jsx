@@ -7,8 +7,8 @@ const Post = (props) => {
         <>
             <Link className="post" to={`/posts/${props.id}`}>
                 <img className="post-image" src={props.imgURL} alt={props.title} />
-                <div className="post-name">{props.name}</div>
-                <div className="title">{`${props.author}`}</div>
+                <div className="post-name">{props.title}</div>
+          <div className="title">{props.author}</div>
             </Link>
         </>
     )

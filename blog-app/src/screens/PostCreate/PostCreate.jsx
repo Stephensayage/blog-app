@@ -45,18 +45,18 @@ class PostCreate extends Component {
         <form className="create-form" onSubmit={this.handleSubmit}>
           <input
             className="input-name"
-            placeholder='Name'
-            value={post.name}
-            name='name'
+            placeholder='Title'
+            value={post.title}
+            name='title'
             required
             autoFocus
             onChange={this.handleChange}
           />
           <input
             className="input-price"
-            placeholder='Price'
-            value={post.price}
-            name='price'
+            placeholder='Author'
+            value={post.author}
+            name='author'
             required
             onChange={this.handleChange}
           />
