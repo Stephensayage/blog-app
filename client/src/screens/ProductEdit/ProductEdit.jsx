@@ -54,7 +54,7 @@ class ProductEdit extends Component {
       <Layout>
         <div className="product-edit">
           <div className="image-container">
-            <img className="edit-product-image" src={product.imgURL} alt={product.name} />
+            <img className="edit-post-image" src={post.imgURL} alt={post.title} />
             <form onSubmit={this.handleSubmit}>
               <input
                 className="edit-input-image-link"
@@ -70,8 +70,10 @@ class ProductEdit extends Component {
             <input
               className="input-name"
               placeholder='Title'
-              value={product.name}
-              name='name'
+
+              value={post.title}
+              name='title'
+
               required
               autoFocus
               onChange={this.handleChange}
@@ -79,8 +81,9 @@ class ProductEdit extends Component {
             <input
               className="input-price"
               placeholder='Author'
-              value={product.price}
-              name='price'
+              value={post.author}
+              name='author'
+
               required
               onChange={this.handleChange}
             />

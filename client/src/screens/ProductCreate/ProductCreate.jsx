@@ -46,8 +46,8 @@ class ProductCreate extends Component {
           <input
             className="input-name"
             placeholder='Title'
-            value={product.name}
-            name='name'
+            value={post.title}
+            name='title'
             required
             autoFocus
             onChange={this.handleChange}
@@ -55,8 +55,8 @@ class ProductCreate extends Component {
           <input
             className="input-price"
             placeholder='Author'
-            value={product.price}
-            name='price'
+            value={post.author}
+            name='author'
             required
             onChange={this.handleChange}
           />

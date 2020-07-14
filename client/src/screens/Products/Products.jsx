@@ -20,16 +20,18 @@ class Products extends Component {
 
   async componentDidMount() {
     const allProducts = await getProducts()
-    this.setState({ 
+    this.setState({
       allProducts: allProducts,
-      queriedProducts: allProducts 
+      queriedProducts: allProducts
     })
   }
 
   handleSearch = event => {
     const sort = () => this.handleSort(this.state.sortType)
-    const queriedProducts = this.state.allProducts.filter(product => product.name.toLowerCase().includes(event.target.value.toLowerCase()))
-    this.setState({ queriedProducts }, sort)
+
+    const queriedPosts = this.state.allPosts.filter(post => post.title.toLowerCase().includes(event.target.value.toLowerCase()))
+    this.setState({ queriedPosts }, sort)
+
   }
 
   handleSort = type => {
@@ -64,8 +66,10 @@ class Products extends Component {
   handleSubmit = event => event.preventDefault()
 
   render() {
-    const productsJSX = this.state.queriedProducts.map((product, index) =>
-      <Product _id={product._id} name={product.name} imgURL={product.imgURL} price={product.price} key={index} />
+
+    const postsJSX = this.state.queriedPosts.map((post, index) =>
+      <Post id={post._id} title={post.title} imgURL={post.imgURL} author={post.author} key={index} />
+
     )
 
     return (
